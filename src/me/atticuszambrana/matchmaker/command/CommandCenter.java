@@ -7,6 +7,12 @@ import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
 import me.atticuszambrana.matchmaker.Matchmaker;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.CrazyMode;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.DepressedMode;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.GayMode;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.HappyMode;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.SadMode;
+import me.atticuszambrana.matchmaker.command.cmds.chatmode.SexyMode;
 import me.atticuszambrana.matchmaker.command.cmds.info.HelpCommand;
 import me.atticuszambrana.matchmaker.command.cmds.interaction.HugCommand;
 import me.atticuszambrana.matchmaker.command.cmds.interaction.KissCommand;
@@ -33,6 +39,14 @@ public class CommandCenter implements MessageCreateListener {
 		commands.add(new MatchmeCommand());
 		commands.add(new HugCommand());
 		commands.add(new KissCommand());
+		
+		// Chat modes
+		commands.add(new GayMode());
+		commands.add(new SadMode());
+		commands.add(new HappyMode());
+		commands.add(new CrazyMode());
+		commands.add(new DepressedMode());
+		commands.add(new SexyMode());
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ package me.atticuszambrana.matchmaker;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
+import org.javacord.api.entity.activity.ActivityType;
 
 import me.atticuszambrana.matchmaker.command.CommandCenter;
 import me.atticuszambrana.matchmaker.common.Config;
@@ -19,6 +20,7 @@ public class Matchmaker {
 		registerManagers();
 		config = configManager.getConfig();
 		startAPI();
+		setActivity();
 	}
 	
 	private void registerManagers() {
@@ -31,6 +33,10 @@ public class Matchmaker {
 				.addListener(new CommandCenter(this))
 				.login()
 				.join();
+	}
+	
+	private void setActivity() {
+		api.updateActivity(ActivityType.STREAMING, "Run " + getConfig().getPrefix() + "help");
 	}
 	
 	public DiscordApi getAPI() {
